@@ -30,7 +30,11 @@ public class FileUtils {
                 continue;
             }
 
-            markdown.append("|  |  |\n| :---: | :---: |\n");
+            markdown.append("<details>\n")
+                .append("<summary>展开榜单（")
+                .append(images.size())
+                .append(" 幅）</summary>\n\n")
+                .append("|  |  |\n| :---: | :---: |\n");
             for (int i = 0; i < images.size(); i++) {
                 if (i % 2 == 0) {
                     markdown.append('|');
@@ -43,7 +47,7 @@ public class FileUtils {
             if (images.size() % 2 == 1) {
                 markdown.append(" |\n");
             }
-            markdown.append('\n');
+            markdown.append("\n</details>\n\n");
         }
 
         markdown.append("榜单来源：Pixiv 官方综合日榜；每组按综合日榜名次筛选指定标签，最多展示 10 幅。\n");
