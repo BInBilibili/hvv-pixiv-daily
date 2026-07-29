@@ -21,7 +21,9 @@ public class Pixiv {
 
     private static final List<Topic> TOPICS = Arrays.asList(
         new Topic("ウマ娘 プリティーダービー", "ウマ娘プリティーダービー"),
-        new Topic("鳴潮", "鳴潮")
+        new Topic("鳴潮", "鳴潮"),
+        new Topic("学園アイドルマスター", "学園アイドルマスター"),
+        new Topic("arknights", "arknights", "アークナイツ", "明日方舟")
     );
 
     public static void main(String[] args) throws IOException {
@@ -69,11 +71,14 @@ public class Pixiv {
 
     static final class Topic {
         private final String displayName;
-        private final String normalizedTag;
+        private final List<String> normalizedTags;
 
-        Topic(String displayName, String tag) {
+        Topic(String displayName, String... tags) {
             this.displayName = displayName;
-            this.normalizedTag = normalizeTag(tag);
+            this.normalizedTags = new ArrayList<>();
+            for (String tag : tags) {
+                this.normalizedTags.add(normalizeTag(tag));
+            }
         }
 
         String getDisplayName() {
@@ -89,7 +94,7 @@ public class Pixiv {
                 String tagName = tag instanceof JSONObject
                     ? ((JSONObject) tag).getString("tag")
                     : String.valueOf(tag);
-                if (normalizedTag.equals(normalizeTag(tagName))) {
+                if (normalizedTags.contains(normalizeTag(tagName))) {
                     return true;
                 }
             }
