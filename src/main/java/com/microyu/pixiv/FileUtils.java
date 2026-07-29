@@ -23,7 +23,7 @@ public class FileUtils {
             .append(" (Pixiv daily ranking)\n\n");
 
         for (Map.Entry<Pixiv.Topic, List<Image>> entry : results.entrySet()) {
-            markdown.append("## ").append(entry.getKey().getDisplayName()).append(" 日榜 Top 10\n\n");
+            markdown.append("**").append(entry.getKey().getDisplayName()).append(" 日榜 Top 10**\n\n");
             List<Image> images = entry.getValue();
             if (images.isEmpty()) {
                 markdown.append("当天 Pixiv 综合日榜中没有匹配该标签的作品。\n\n");

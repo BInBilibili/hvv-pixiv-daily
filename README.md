@@ -2,7 +2,7 @@
 
 Update: 2026-07-30 (Pixiv daily ranking)
 
-## ウマ娘 プリティーダービー 日榜 Top 10
+**ウマ娘 プリティーダービー 日榜 Top 10**
 
 <details>
 <summary>展开榜单（10 幅）</summary>
@@ -17,7 +17,7 @@ Update: 2026-07-30 (Pixiv daily ranking)
 
 </details>
 
-## 鳴潮 日榜 Top 10
+**鳴潮 日榜 Top 10**
 
 <details>
 <summary>展开榜单（7 幅）</summary>
@@ -31,7 +31,7 @@ Update: 2026-07-30 (Pixiv daily ranking)
 
 </details>
 
-## 学園アイドルマスター 日榜 Top 10
+**学園アイドルマスター 日榜 Top 10**
 
 <details>
 <summary>展开榜单（3 幅）</summary>
@@ -43,7 +43,7 @@ Update: 2026-07-30 (Pixiv daily ranking)
 
 </details>
 
-## arknights 日榜 Top 10
+**arknights 日榜 Top 10**
 
 <details>
 <summary>展开榜单（10 幅）</summary>
