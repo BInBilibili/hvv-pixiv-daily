@@ -4,6 +4,9 @@ Update: 2026-07-30 (Pixiv daily ranking)
 
 ## ウマ娘 プリティーダービー 日榜 Top 10
 
+<details>
+<summary>展开榜单（10 幅）</summary>
+
 |  |  |
 | :---: | :---: |
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/17/50/49/147696513_p0_master1200.jpg) **#1** [シーザリオ](https://www.pixiv.net/artworks/147696513)<br>综合日榜 #253 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/17/50/49/147696513_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/17/50/49/147696513_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/21/28/56/147704858_p0_master1200.jpg) **#2** [夏合宿](https://www.pixiv.net/artworks/147704858)<br>综合日榜 #277 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/21/28/56/147704858_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/21/28/56/147704858_p0.png)|
@@ -12,7 +15,12 @@ Update: 2026-07-30 (Pixiv daily ranking)
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/23/53/51/147711244_p0_master1200.jpg) **#7** [内容もオチもないのに描くのに時間がかかった漫画](https://www.pixiv.net/artworks/147711244)<br>综合日榜 #461 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/23/53/51/147711244_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/23/53/51/147711244_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/21/46/34/147742109-0a3bd5568881bb8b221c25dfb8a88569_p0_master1200.jpg) **#8** [マンハッタンカフェ／Manhattan Cafe](https://www.pixiv.net/artworks/147742109)<br>综合日榜 #466 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/21/46/34/147742109-0a3bd5568881bb8b221c25dfb8a88569_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/21/46/34/147742109-0a3bd5568881bb8b221c25dfb8a88569_p0.png)|
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/07/00/33/147683753_p0_master1200.jpg) **#9** [ゴルシとマックイーンその429](https://www.pixiv.net/artworks/147683753)<br>综合日榜 #470 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/07/00/33/147683753_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/07/00/33/147683753_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/00/31/39/147713267_p0_master1200.jpg) **#10** [レッドディザイア](https://www.pixiv.net/artworks/147713267)<br>综合日榜 #473 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/00/31/39/147713267_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/00/31/39/147713267_p0.png)|
 
+</details>
+
 ## 鳴潮 日榜 Top 10
+
+<details>
+<summary>展开榜单（7 幅）</summary>
 
 |  |  |
 | :---: | :---: |
@@ -21,14 +29,24 @@ Update: 2026-07-30 (Pixiv daily ranking)
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/14/02/21/147728053_p0_master1200.jpg) **#5** [秧秧壁纸一枚~\|yangyang xuanling](https://www.pixiv.net/artworks/147728053)<br>综合日榜 #382 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/14/02/21/147728053_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/14/02/21/147728053_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/16/04/38/147694032_p0_master1200.jpg) **#6** [秧秧·玄翎](https://www.pixiv.net/artworks/147694032)<br>综合日榜 #486 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/16/04/38/147694032_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/16/04/38/147694032_p0.png)|
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/18/58/11/147735394_p0_master1200.jpg) **#7** [秧秧](https://www.pixiv.net/artworks/147735394)<br>综合日榜 #491 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/18/58/11/147735394_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/18/58/11/147735394_p0.png)| |
 
+</details>
+
 ## 学園アイドルマスター 日榜 Top 10
+
+<details>
+<summary>展开榜单（3 幅）</summary>
 
 |  |  |
 | :---: | :---: |
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/13/11/31/147690672_p0_master1200.jpg) **#1** [倉本家のメイドさん](https://www.pixiv.net/artworks/147690672)<br>综合日榜 #81 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/13/11/31/147690672_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/13/11/31/147690672_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/11/22/38/147724793_p0_master1200.jpg) **#2** [倉本さんは可愛いですわ97](https://www.pixiv.net/artworks/147724793)<br>综合日榜 #129 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/11/22/38/147724793_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/11/22/38/147724793_p0.png)|
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/18/30/05/147697817_p0_master1200.jpg) **#3** [篠澤広](https://www.pixiv.net/artworks/147697817)<br>综合日榜 #227 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/18/30/05/147697817_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/18/30/05/147697817_p0.png)| |
 
+</details>
+
 ## arknights 日榜 Top 10
+
+<details>
+<summary>展开榜单（10 幅）</summary>
 
 |  |  |
 | :---: | :---: |
@@ -37,5 +55,7 @@ Update: 2026-07-30 (Pixiv daily ranking)
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/05/59/28/147682654_p0_master1200.jpg) **#5** [アホメ！](https://www.pixiv.net/artworks/147682654)<br>综合日榜 #123 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/05/59/28/147682654_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/05/59/28/147682654_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/17/44/10/147696355_p0_master1200.jpg) **#6** [完结](https://www.pixiv.net/artworks/147696355)<br>综合日榜 #197 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/17/44/10/147696355_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/17/44/10/147696355_p0.png)|
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/21/05/26/147703884_p0_master1200.jpg) **#7** [珊比](https://www.pixiv.net/artworks/147703884)<br>综合日榜 #233 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/21/05/26/147703884_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/21/05/26/147703884_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/00/40/09/147713560_p0_master1200.jpg) **#8** [Day83 Fiammetta](https://www.pixiv.net/artworks/147713560)<br>综合日榜 #239 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/00/40/09/147713560_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/00/40/09/147713560_p0.png)|
 |![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/27/00/11/45/147675191_p0_master1200.jpg) **#9** [Day56](https://www.pixiv.net/artworks/147675191)<br>综合日榜 #242 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/00/11/45/147675191_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/27/00/11/45/147675191_p0.png)|![](https://pixiv.microyu.workers.dev/c/480x960/img-master/img/2026/07/28/18/36/18/147734660_p0_master1200.jpg) **#10** [Sleeping Fox](https://www.pixiv.net/artworks/147734660)<br>综合日榜 #291 · [JPG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/18/36/18/147734660_p0.jpg) [PNG](https://pixiv.microyu.workers.dev/img-original/img/2026/07/28/18/36/18/147734660_p0.png)|
+
+</details>
 
 榜单来源：Pixiv 官方综合日榜；每组按综合日榜名次筛选指定标签，最多展示 10 幅。
