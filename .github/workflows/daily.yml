@@ -2,7 +2,7 @@ name: Update Pixiv daily rankings
 
 on:
   schedule:
-    - cron: "5 4 * * *" # 12:05 Asia/Shanghai
+    - cron: "50 12 * * *" # 20:50 Asia/Shanghai (temporary schedule test)
   workflow_dispatch:
 
 permissions:
