@@ -1,8 +1,8 @@
-name: Update Pixiv daily rankings
+name: Pixiv daily auto update v2
 
 on:
   schedule:
-    - cron: "50 12 * * *" # 20:50 Asia/Shanghai (temporary schedule test)
+    - cron: "1 15 * * *" # 23:01 Asia/Shanghai (schedule registration test)
   workflow_dispatch:
 
 permissions:
