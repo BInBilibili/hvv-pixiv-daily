@@ -2,7 +2,7 @@ name: Pixiv daily auto update v2
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # Temporary repeated schedule test
+    - cron: "17 4 * * *" # 12:17 Asia/Shanghai
   workflow_dispatch:
 
 permissions:
