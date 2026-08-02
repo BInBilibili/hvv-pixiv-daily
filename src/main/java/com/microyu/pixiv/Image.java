@@ -3,9 +3,15 @@ package com.microyu.pixiv;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.Normalizer;
 
 public class Image {
+    private static final int MAX_FILE_NAME_BYTES = 180;
+
     private final String title;
     private final String pageUrl;
     private final String previewUrl;
@@ -61,25 +67,82 @@ public class Image {
 
     private boolean downloadOriginal(Path directory, String repository, String branch, String sourceUrl,
                                      String extension) {
-        String fileName = artworkId + "_p0." + extension;
+        String fileName = createFileName(directory, extension);
         Path destination = directory.resolve(fileName);
         try {
             if (!HttpUtls.downloadImage(sourceUrl, destination)) {
                 return false;
             }
+            String encodedPath = encodePath(directory.resolve(fileName));
             displayUrl = String.format(
-                "https://raw.githubusercontent.com/%s/%s/%s/%s",
-                repository, branch, directory.toString().replace('\\', '/'), fileName
+                "https://raw.githubusercontent.com/%s/%s/%s",
+                repository, branch, encodedPath
             );
             downloadedFileUrl = String.format(
-                "https://github.com/%s/blob/%s/%s/%s",
-                repository, branch, directory.toString().replace('\\', '/'), fileName
+                "https://github.com/%s/blob/%s/%s",
+                repository, branch, encodedPath
             );
             return true;
         } catch (IOException exception) {
             System.err.println("Unable to download original image " + artworkId + ": " + exception.getMessage());
             return false;
         }
+    }
+
+    private String createFileName(Path directory, String extension) {
+        String baseName = safeFileBaseName(title, artworkId);
+        String fileName = baseName + "." + extension;
+        if (Files.exists(directory.resolve(fileName))) {
+            fileName = baseName + " (" + artworkId + ")." + extension;
+        }
+        return fileName;
+    }
+
+    static String safeFileBaseName(String value, String fallback) {
+        String safeName = value == null ? "" : Normalizer.normalize(value, Normalizer.Form.NFKC);
+        safeName = safeName.replaceAll("[\\x00-\\x1f<>:\"/\\\\|?*]", "_")
+            .replaceAll("\\s+", " ")
+            .trim()
+            .replaceAll("[. ]+$", "");
+        if (safeName.isEmpty()) {
+            safeName = fallback;
+        }
+        if (safeName.matches("(?i)^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(?:\\..*)?$")) {
+            safeName = "_" + safeName;
+        }
+        safeName = truncateUtf8(safeName, MAX_FILE_NAME_BYTES).replaceAll("[. ]+$", "");
+        if (safeName.isEmpty()) {
+            safeName = fallback;
+        }
+        return safeName;
+    }
+
+    private static String truncateUtf8(String value, int maxBytes) {
+        int byteCount = 0;
+        int endIndex = 0;
+        while (endIndex < value.length()) {
+            int codePoint = value.codePointAt(endIndex);
+            int codePointBytes = new String(Character.toChars(codePoint))
+                .getBytes(StandardCharsets.UTF_8).length;
+            if (byteCount + codePointBytes > maxBytes) {
+                break;
+            }
+            byteCount += codePointBytes;
+            endIndex += Character.charCount(codePoint);
+        }
+        return value.substring(0, endIndex);
+    }
+
+    static String encodePath(Path path) throws IOException {
+        String[] segments = path.toString().replace('\\', '/').split("/");
+        StringBuilder encoded = new StringBuilder();
+        for (String segment : segments) {
+            if (encoded.length() > 0) {
+                encoded.append('/');
+            }
+            encoded.append(URLEncoder.encode(segment, StandardCharsets.UTF_8.name()).replace("+", "%20"));
+        }
+        return encoded.toString();
     }
 
     String toMarkdown() {

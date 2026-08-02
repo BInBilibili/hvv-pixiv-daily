@@ -60,7 +60,7 @@ public class Pixiv {
         }
 
         for (Map.Entry<Topic, List<Image>> entry : results.entrySet()) {
-            Path topicDirectory = IMAGE_DIRECTORY.resolve(entry.getKey().getSlug());
+            Path topicDirectory = IMAGE_DIRECTORY.resolve(entry.getKey().getDirectoryName());
             for (Image image : entry.getValue()) {
                 image.downloadOriginal(topicDirectory, IMAGE_REPOSITORY, IMAGE_BRANCH);
             }
@@ -87,17 +87,12 @@ public class Pixiv {
 
     static final class Topic {
         private final String displayName;
-        private final String slug;
+        private final String directoryName;
         private final List<String> normalizedTags;
 
         Topic(String displayName, String... tags) {
             this.displayName = displayName;
-            String generatedSlug = normalizeTag(displayName).replaceAll("[^A-Za-z0-9]+", "-")
-                .replaceAll("^-|-$", "");
-            if (generatedSlug.isEmpty()) {
-                generatedSlug = Integer.toHexString(displayName.hashCode());
-            }
-            this.slug = generatedSlug;
+            this.directoryName = displayName;
             this.normalizedTags = new ArrayList<>();
             for (String tag : tags) {
                 this.normalizedTags.add(normalizeTag(tag));
@@ -108,8 +103,8 @@ public class Pixiv {
             return displayName;
         }
 
-        String getSlug() {
-            return slug;
+        String getDirectoryName() {
+            return directoryName;
         }
 
         boolean matches(JSONArray tags) {
