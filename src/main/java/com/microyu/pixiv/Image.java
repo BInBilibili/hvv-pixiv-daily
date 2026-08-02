@@ -16,6 +16,7 @@ public class Image {
     private final int dailyRank;
 
     private String displayUrl;
+    private String downloadedFileUrl;
 
     private Image(String title, String pageUrl, String previewUrl, String originalJpgUrl,
                   String originalPngUrl, String artworkId, int topicRank, int dailyRank) {
@@ -70,6 +71,10 @@ public class Image {
                 "https://raw.githubusercontent.com/%s/%s/%s/%s",
                 repository, branch, directory.toString().replace('\\', '/'), fileName
             );
+            downloadedFileUrl = String.format(
+                "https://github.com/%s/blob/%s/%s/%s",
+                repository, branch, directory.toString().replace('\\', '/'), fileName
+            );
             return true;
         } catch (IOException exception) {
             System.err.println("Unable to download original image " + artworkId + ": " + exception.getMessage());
@@ -79,9 +84,11 @@ public class Image {
 
     String toMarkdown() {
         String safeTitle = title == null ? "Untitled" : title.replace("|", "\\|").replace("\n", " ");
+        String imageMarkdown = String.format("![](%s)", displayUrl == null ? previewUrl : displayUrl);
+        String imageTarget = downloadedFileUrl == null ? pageUrl : downloadedFileUrl;
         return String.format(
-            "![](%s) **#%d** [%s](%s)<br>综合日榜 #%d · [JPG](%s) [PNG](%s)",
-            displayUrl == null ? previewUrl : displayUrl,
+            "[%s](%s) **#%d** [%s](%s)<br>综合日榜 #%d · [JPG](%s) [PNG](%s)",
+            imageMarkdown, imageTarget,
             topicRank, safeTitle, pageUrl, dailyRank, originalJpgUrl, originalPngUrl
         );
     }
