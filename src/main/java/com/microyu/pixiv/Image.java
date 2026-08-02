@@ -99,7 +99,7 @@ public class Image {
     }
 
     static String safeFileBaseName(String value, String fallback) {
-        String safeName = value == null ? "" : Normalizer.normalize(value, Normalizer.Form.NFKC);
+        String safeName = value == null ? "" : Normalizer.normalize(value, Normalizer.Form.NFC);
         safeName = safeName.replaceAll("[\\x00-\\x1f<>:\"/\\\\|?*]", "_")
             .replaceAll("\\s+", " ")
             .trim()
