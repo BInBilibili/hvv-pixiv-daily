@@ -22,6 +22,24 @@ jobs:
         run: mvn --batch-mode package
       - name: Update README
         run: java -jar target/hvv-pixiv-daily-jar-with-dependencies.jar
+      - name: Publish current original images
+        run: |
+          snapshot_dir="$RUNNER_TEMP/daily-images-snapshot"
+          worktree_dir="$RUNNER_TEMP/daily-images-worktree"
+          mkdir -p "$snapshot_dir"
+          cp -R daily-images/. "$snapshot_dir/"
+          git worktree add --detach "$worktree_dir"
+          git -C "$worktree_dir" checkout --orphan daily-images-snapshot
+          git -C "$worktree_dir" rm -rf .
+          mkdir -p "$worktree_dir/daily-images"
+          cp -R "$snapshot_dir/." "$worktree_dir/daily-images/"
+          touch "$worktree_dir/.nojekyll"
+          git -C "$worktree_dir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$worktree_dir" config user.name "github-actions[bot]"
+          git -C "$worktree_dir" add .
+          git -C "$worktree_dir" commit -m "Publish current Pixiv originals"
+          git -C "$worktree_dir" push --force origin HEAD:daily-images
+          git worktree remove "$worktree_dir"
       - name: Commit and push changes
         run: |
           if git diff --quiet -- README.md; then

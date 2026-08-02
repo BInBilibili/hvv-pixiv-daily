@@ -6,6 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 import java.text.Normalizer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -18,6 +21,11 @@ public class Pixiv {
         "https://www.pixiv.net/ranking.php?format=json&mode=daily&p=";
     private static final int MAX_RANKING_PAGES = 10;
     private static final int RESULTS_PER_TOPIC = 10;
+    private static final Path IMAGE_DIRECTORY = Paths.get("daily-images");
+    private static final String IMAGE_REPOSITORY = System.getenv().getOrDefault(
+        "GITHUB_REPOSITORY", "BInBilibili/hvv-pixiv-daily"
+    );
+    private static final String IMAGE_BRANCH = "daily-images";
 
     private static final List<Topic> TOPICS = Arrays.asList(
         new Topic("ウマ娘 プリティーダービー", "ウマ娘プリティーダービー"),
@@ -27,6 +35,7 @@ public class Pixiv {
     );
 
     public static void main(String[] args) throws IOException {
+        Files.createDirectories(IMAGE_DIRECTORY);
         Map<Topic, List<Image>> results = new LinkedHashMap<>();
         for (Topic topic : TOPICS) {
             results.put(topic, new ArrayList<>());
@@ -47,6 +56,13 @@ public class Pixiv {
                         topicImages.add(Image.fromRankingEntry(artwork, topicImages.size() + 1));
                     }
                 }
+            }
+        }
+
+        for (Map.Entry<Topic, List<Image>> entry : results.entrySet()) {
+            Path topicDirectory = IMAGE_DIRECTORY.resolve(entry.getKey().getSlug());
+            for (Image image : entry.getValue()) {
+                image.downloadOriginal(topicDirectory, IMAGE_REPOSITORY, IMAGE_BRANCH);
             }
         }
 
@@ -71,10 +87,17 @@ public class Pixiv {
 
     static final class Topic {
         private final String displayName;
+        private final String slug;
         private final List<String> normalizedTags;
 
         Topic(String displayName, String... tags) {
             this.displayName = displayName;
+            String generatedSlug = normalizeTag(displayName).replaceAll("[^A-Za-z0-9]+", "-")
+                .replaceAll("^-|-$", "");
+            if (generatedSlug.isEmpty()) {
+                generatedSlug = Integer.toHexString(displayName.hashCode());
+            }
+            this.slug = generatedSlug;
             this.normalizedTags = new ArrayList<>();
             for (String tag : tags) {
                 this.normalizedTags.add(normalizeTag(tag));
@@ -83,6 +106,10 @@ public class Pixiv {
 
         String getDisplayName() {
             return displayName;
+        }
+
+        String getSlug() {
+            return slug;
         }
 
         boolean matches(JSONArray tags) {
