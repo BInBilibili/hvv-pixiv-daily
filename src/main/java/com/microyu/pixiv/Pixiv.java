@@ -31,7 +31,11 @@ public class Pixiv {
         new Topic("ウマ娘 プリティーダービー", "ウマ娘プリティーダービー"),
         new Topic("鳴潮", "鳴潮"),
         new Topic("学園アイドルマスター", "学園アイドルマスター"),
-        new Topic("arknights", "arknights", "アークナイツ", "明日方舟")
+        new Topic("arknights", "arknights", "アークナイツ", "明日方舟"),
+        new Topic("艦これ・アズールレーン・戦艦少女R",
+            "艦これ", "艦隊これくしょん",
+            "アズールレーン", "碧蓝航线",
+            "戦艦少女R", "战舰少女R", "戰艦少女R")
     );
 
     public static void main(String[] args) throws IOException {
