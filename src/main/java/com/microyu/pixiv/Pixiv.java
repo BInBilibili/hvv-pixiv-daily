@@ -28,6 +28,7 @@ public class Pixiv {
     private static final String IMAGE_BRANCH = "daily-images";
 
     private static final List<Topic> TOPICS = Arrays.asList(
+        Topic.byMinWidth("壁纸", 2560),
         new Topic("ウマ娘 プリティーダービー", "ウマ娘プリティーダービー"),
         new Topic("鳴潮", "鳴潮"),
         new Topic("学園アイドルマスター", "学園アイドルマスター"),
@@ -56,7 +57,7 @@ public class Pixiv {
                 JSONObject artwork = contents.getJSONObject(i);
                 for (Topic topic : TOPICS) {
                     List<Image> topicImages = results.get(topic);
-                    if (topicImages.size() < RESULTS_PER_TOPIC && topic.matches(artwork.getJSONArray("tags"))) {
+                    if (topicImages.size() < RESULTS_PER_TOPIC && topic.matches(artwork)) {
                         topicImages.add(Image.fromRankingEntry(artwork, topicImages.size() + 1));
                     }
                 }
@@ -93,14 +94,24 @@ public class Pixiv {
         private final String displayName;
         private final String directoryName;
         private final List<String> normalizedTags;
+        private final int minWidth;
 
         Topic(String displayName, String... tags) {
+            this(displayName, 0, tags);
+        }
+
+        private Topic(String displayName, int minWidth, String... tags) {
             this.displayName = displayName;
             this.directoryName = displayName;
+            this.minWidth = minWidth;
             this.normalizedTags = new ArrayList<>();
             for (String tag : tags) {
                 this.normalizedTags.add(normalizeTag(tag));
             }
+        }
+
+        static Topic byMinWidth(String displayName, int minWidth) {
+            return new Topic(displayName, minWidth);
         }
 
         String getDisplayName() {
@@ -111,7 +122,25 @@ public class Pixiv {
             return directoryName;
         }
 
-        boolean matches(JSONArray tags) {
+        String getEmptyMessage() {
+            return minWidth > 0
+                ? "当天 Pixiv 综合日榜中没有宽度不低于 " + minWidth + " 像素的横图作品。"
+                : "当天 Pixiv 综合日榜中没有匹配该标签的作品。";
+        }
+
+        boolean matches(JSONObject artwork) {
+            if (minWidth > 0) {
+                if (!"0".equals(artwork.getString("illust_type"))) {
+                    return false;
+                }
+                int width = artwork.getIntValue("width");
+                int height = artwork.getIntValue("height");
+                return width >= minWidth && width > height;
+            }
+            return matchesTag(artwork.getJSONArray("tags"));
+        }
+
+        private boolean matchesTag(JSONArray tags) {
             if (tags == null) {
                 return false;
             }

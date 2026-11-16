@@ -26,7 +26,7 @@ public class FileUtils {
             markdown.append("**").append(entry.getKey().getDisplayName()).append(" 日榜 Top 10**\n\n");
             List<Image> images = entry.getValue();
             if (images.isEmpty()) {
-                markdown.append("当天 Pixiv 综合日榜中没有匹配该标签的作品。\n\n");
+                markdown.append(entry.getKey().getEmptyMessage()).append("\n\n");
                 continue;
             }
 
@@ -50,8 +50,8 @@ public class FileUtils {
             markdown.append("\n</details>\n\n");
         }
 
-        markdown.append("榜单来源：Pixiv 官方综合日榜；每组按综合日榜名次筛选指定标签，最多展示 10 幅。\n\n")
-            .append("原图保存在 `daily-images` 分支，按标签目录分类并使用作品标题命名；该分支每天重建，只保留当前榜单快照。\n");
+        markdown.append("榜单来源：Pixiv 官方综合日榜；游戏组按综合日榜名次筛选指定标签，壁纸组按分辨率筛选横图（宽 ≥2560），最多展示 10 幅。\n\n")
+            .append("原图保存在 `daily-images` 分支，按分组目录分类并使用作品标题命名；该分支每天重建，只保留当前榜单快照。\n");
         Files.write(README_PATH, markdown.toString().getBytes(StandardCharsets.UTF_8));
     }
 }
